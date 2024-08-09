@@ -14,7 +14,6 @@ def deleteCliente():
             print("campo não preenchido")
     except sqlite3.Error as erro:
         print("erro ",erro)
-
 def deleteVendedor():
     conexao.conectar()
     global vendedorApaga

@@ -1,4 +1,5 @@
 import conexao
-#Criação das tabelas
 conexao.conectar()
-def criar():
+def tabelaCliente():
+    criarTabelaCliente = "CREATE TABLE IF NOT EXISTS cliente(nome string, sobrenome string, cpf integer, telefone integer, rua string, numero integer, cidade string, estado string)"
+    conexao.cursor.execute(criarTabelaCliente)

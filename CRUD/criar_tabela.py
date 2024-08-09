@@ -6,8 +6,9 @@ def tabelaCliente():
     conexao.cursor.execute(criarTabelaCliente)
 
 def tabelaProduto():
-    criarTabelaProduto = "CREATE TABLE IF NOT EXISTS produto(quantidade integer, tamanho string, valor integer, material string, cor string)"
+    criarTabelaProduto = "CREATE TABLE IF NOT EXISTS produto(id integer primary key autoincrement, nome string, quantidade integer, tamanho string, valor integer, material string, cor string)"
     conexao.cursor.execute(criarTabelaProduto)
 
 def tabelaVendedor():
-    criarTabelaVendedor = "CREATE TABLE IF NOT EXISTS vendedor(nome string, sobrenome string, id integer, cpf integer)"
+    criarTabelaVendedor = "CREATE TABLE IF NOT EXISTS vendedor(id integer primary key autoincrement, nome string, sobrenome string, id integer, cpf integer)"
+    conexao.cursor.execute(criarTabelaVendedor)

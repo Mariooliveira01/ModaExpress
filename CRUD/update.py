@@ -58,13 +58,13 @@ def atualizarCliente():
     if exists > 0:
         # Executa a consulta de atualização
         conexao.cursor.execute(consulta, tuple(params))
-        conexao.com.commit()
+        conexao.conn.commit()
         print("Dados atualizados com sucesso!")
     else:
         print("CPF não encontrado. Nenhuma atualização foi feita.")
 
     # Fecha a conexão com o banco de dados
-    conexao.com.close()
+    conexao.conn.close()
 
 
 def atualizarVendedor():
@@ -106,13 +106,13 @@ def atualizarVendedor():
     if exists > 0:
         # Executa a consulta de atualização
         conexao.cursor.execute(consulta, tuple(params))
-        conexao.com.commit()
+        conexao.conn.commit()
         print("Dados atualizados com sucesso!")
     else:
         print("ID não encontrado. Nenhuma atualização foi feita.")
 
     # Fecha a conexão com o banco de dados
-    conexao.com.close()
+    conexao.conn.close()
 
 
 def atualizarProduto():
@@ -165,10 +165,10 @@ def atualizarProduto():
     if exists > 0:
         # Executa a consulta de atualização
         conexao.cursor.execute(consulta, tuple(params))
-        conexao.com.commit()
+        conexao.conn.commit()
         print("Dados atualizados com sucesso!")
     else:
         print("ID não encontrado. Nenhuma atualização foi feita.")
 
     # Fecha a conexão com o banco de dados
-    conexao.com.close()
+    conexao.conn.close()

@@ -8,7 +8,7 @@ def deleteCliente():
     try:
         if(clienteApaga !=[]):
             conexao.cursor.execute("DELETE FROM cliente WHERE cpf = ?",(clienteApaga))
-            conexao.com.commit()
+            conexao.conn.commit()
             print("cliente removido com sucesso")
         elif(clienteApaga == []):
             print("campo não preenchido")
@@ -21,7 +21,7 @@ def deleteVendedor():
     try:
         if(vendedorApaga !=[]):
             conexao.cursor.execute("DELETE FROM vendedor WHERE id = ?",(vendedorApaga))
-            conexao.com.commit()
+            conexao.conn.commit()
             print("vendedor demitido")
         elif(vendedorApaga == []):
             print("campo não preenchido")
@@ -29,11 +29,11 @@ def deleteVendedor():
         print("erro ",erro)
 def deleteProduto():
     global produtoApaga
-    produtoApaga =
+    produtoApaga = consultaEstoque
     try:
         if(produtoApaga !=[]):
             conexao.cursor.execute("DELETE FROM produto WHERE id = ?",(produtoApaga))
-            conexao.com.commit()
+            conexao.conn.commit()
             print("produto removido do estoque")
         elif(produtoApaga == []):
             print("campo não preenchido")

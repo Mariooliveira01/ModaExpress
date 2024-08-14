@@ -15,14 +15,9 @@ def cadastro_funcionario():
     conexao.conectar()
     nome = input("Informe seu Nome: ")
     sobrenome = input("Informe seu Sobrenome: ")
-    idade = input("Informe sua Idade: ")
     cpf= input("Informe seu CPF: ")
-    telefone = input("Informe seu Nº de Telefone: ")
-    endereco = input("Informe seu Endereço: ")
-    cidade = input("Informe sua Cidade: ")
-    estado = input("Informe seu Estado: ")
 
-    inserir_funcionario = "INSERT INTO funcionario VALUES ('"+nome+"', '"+sobrenome+"','"+str(idade)+"'"
+    inserir_funcionario = "INSERT INTO vendedor VALUES ('"+nome+"', '"+sobrenome+"','"+str(cpf)+"')"
     conexao.cursor.execute(inserir_funcionario)
     conexao.conn.commit()
     conexao.conn.close()

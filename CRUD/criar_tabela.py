@@ -10,5 +10,5 @@ def tabelaProduto():
     conexao.cursor.execute(criarTabelaProduto)
 
 def tabelaVendedor():
-    criarTabelaVendedor = "CREATE TABLE IF NOT EXISTS vendedor(id integer primary key autoincrement, nome string, sobrenome string, id integer, cpf integer)"
+    criarTabelaVendedor = "CREATE TABLE IF NOT EXISTS vendedor(id integer primary key autoincrement, nome string, sobrenome string, cpf integer)"
     conexao.cursor.execute(criarTabelaVendedor)

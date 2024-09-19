@@ -3,13 +3,7 @@ import conexao
 
 #MENU INICIAL PARA CLIENTE (se ele escolher o perfil 'Sou cliente')#
 
-def menu_cliente():
-  print("O QUE DESEJA FAZER? ")
-  print("""1 - Cadastre-se: \n2 - Alterar dados Cadastrais: \n3 - Compras: \n 4 - Excluir minha conta:""" )
-  
-  global opcao
-  opcao=input()
-  return opcao
+
 
 
 #CADASTRO DE CLENTE(se ele FOR SE CADASTRAR)#
@@ -32,4 +26,4 @@ def cadastro_cliente():
     conexao.conn.close()
     print("CADASTRO FINALIZADO!")
   except sqlite3.Error as erro:
-    print(" ###### ERRO AO CADASTRAR ######")
+    print(erro)

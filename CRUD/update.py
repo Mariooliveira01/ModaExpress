@@ -46,10 +46,10 @@ def atualizarCliente():
         params.append(estadoNovo)
 
     # Remove a última vírgula e espaço
-    consulta = consulta.rstrip(', ')
+    consulta = consulta.rstrip('?, ')
 
     # Adiciona a cláusula WHERE para identificar o registro com o CPF
-    consulta += ' WHERE cpf = ?'
+    consulta += ' WHERE cpf = '
     params.append(cpf)
 
     # Verifica se o CPF existe no banco de dados
@@ -66,7 +66,7 @@ def atualizarCliente():
     # Fecha a conexão com o banco de dados
     conexao.conn.close()
 
-
+# Função para atualizar os dados de um Vendedor com base no ID
 def atualizarVendedor():
     conexao.conectar()
 
@@ -94,10 +94,10 @@ def atualizarVendedor():
 
 
     # Remove a última vírgula e espaço
-    consulta = consulta.rstrip(', ')
+    consulta = consulta.rstrip('?, ')
 
     # Adiciona a cláusula WHERE para identificar o registro com o CPF
-    consulta += ' WHERE id = ?'
+    consulta += ' WHERE id = '
     params.append(id)
 
     # Verifica se o CPF existe no banco de dados
@@ -114,7 +114,7 @@ def atualizarVendedor():
     # Fecha a conexão com o banco de dados
     conexao.conn.close()
 
-
+# Função para atualizar os dados de um Produto com base no ID
 def atualizarProduto():
     conexao.conectar()
 
@@ -153,10 +153,10 @@ def atualizarProduto():
         params.append(corNovo)
 
     # Remove a última vírgula e espaço
-    consulta = consulta.rstrip(', ')
+    consulta = consulta.rstrip('?, ')
 
     # Adiciona a cláusula WHERE para identificar o registro com o CPF
-    consulta += ' WHERE id = ?'
+    consulta += ' WHERE id = '
     params.append(id)
 
     # Verifica se o CPF existe no banco de dados

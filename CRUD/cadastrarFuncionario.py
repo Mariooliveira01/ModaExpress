@@ -1,13 +1,7 @@
 import sqlite3
 import conexao
 
-def menu_funcionario():
-  print("O QUE DESEJA FAZER? ")
-  print("""1 - Cadastre-se: \n2 - Alterar dados Cadastrais: \n 3 - Consultar Estoque: \n4 - Excluir minha conta:""")
-  
-  global opcao 
-  opcao = input()
-  return opcao
+
 
 
 def cadastro_funcionario():

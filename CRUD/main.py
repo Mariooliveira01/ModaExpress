@@ -10,7 +10,10 @@ import registroVendas
 import delete
 import update
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c48c45e5fbdf94ea35055ba763cb3a4228764fe9
 criar_tabela.tabelaCliente()
 criar_tabela.tabelaProduto()
 criar_tabela.tabelaVendedor()
@@ -25,8 +28,13 @@ while (opcao!='3'):
   else:
     print("Opção Indisponível!")
 
+<<<<<<< HEAD
 #O QUE DESEJA FAZER? PARA CLIENTE#
 opcao = funcaoMenu.menu_cliente()
+=======
+  #O QUE DESEJA FAZER? PARA CLIENTE#
+opcao = cadastroCliente.cadastro_cliente()
+>>>>>>> c48c45e5fbdf94ea35055ba763cb3a4228764fe9
 while (opcao!='5'):
   if(opcao =='1'):
     cadastroCliente.cadastro_cliente()

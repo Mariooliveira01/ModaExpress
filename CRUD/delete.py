@@ -1,11 +1,12 @@
 import sqlite3
 import conexao
-import cadastroProdutos
-import selectCliente
+import CRUD.select as select
+
+
 def deleteCliente():
     conexao.conectar()
     global clienteApaga
-    clienteApaga = selectCliente.consultaCliente
+    clienteApaga = select.consultaCliente
     try:
         if(clienteApaga !=[]):
             conexao.cursor.execute("DELETE FROM cliente WHERE cpf = ?",(clienteApaga))
@@ -15,10 +16,11 @@ def deleteCliente():
             print("campo não preenchido")
     except sqlite3.Error as erro:
         print("erro ",erro)
+
 def deleteVendedor():
     conexao.conectar()
     global vendedorApaga
-    vendedorApaga = selectCliente.consultaVendedor
+    vendedorApaga = select.consultaVendedor
     try:
         if(vendedorApaga !=[]):
             conexao.cursor.execute("DELETE FROM vendedor WHERE id = ?",(vendedorApaga))
@@ -28,9 +30,10 @@ def deleteVendedor():
             print("campo não preenchido")
     except sqlite3.Error as erro:
         print("erro ",erro)
+
 def deleteProduto():
     global produtoApaga
-    produtoApaga = selectCliente.consultaEstoque
+    produtoApaga = select.consultaEstoque
     try:
         if(produtoApaga !=[]):
             conexao.cursor.execute("DELETE FROM produto WHERE id = ?",(produtoApaga))

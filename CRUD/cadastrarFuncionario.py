@@ -1,9 +1,6 @@
 import sqlite3
 import conexao
 
-
-
-
 def cadastro_funcionario():
   try:
     conexao.conectar()

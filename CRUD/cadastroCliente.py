@@ -1,8 +1,6 @@
 import sqlite3
 import conexao
 
-#CADASTRO DE CLENTE(se ele FOR SE CADASTRAR)#
-
 def cadastro_cliente():
   try:
     conexao.conectar()

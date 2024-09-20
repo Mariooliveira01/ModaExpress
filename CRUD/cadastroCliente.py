@@ -1,11 +1,6 @@
 import sqlite3
 import conexao
 
-#MENU INICIAL PARA CLIENTE (se ele escolher o perfil 'Sou cliente')#
-
-
-
-
 #CADASTRO DE CLENTE(se ele FOR SE CADASTRAR)#
 
 def cadastro_cliente():
@@ -20,10 +15,10 @@ def cadastro_cliente():
     cidade = input("Informe sua Cidade: ")
     estado = input("Informe seu Estado: ")
 
-    inserir_cliente = "INSERT INTO cliente VALUES ('"+nome+"', '"+sobrenome+"', '"+str(cpf)+"', '"+str(telefone)+"', '"+rua+"','"+numero+"', '"+cidade+"', '"+estado+"')"
+    inserir_cliente = "INSERT INTO cliente VALUES ('"+nome+"', '"+sobrenome+"', '"+str(cpf)+"', '"+str(telefone)+"', '"+rua+"','"+str(numero)+"', '"+cidade+"', '"+estado+"')"
     conexao.cursor.execute(inserir_cliente)
     conexao.conn.commit()
     conexao.conn.close()
     print("CADASTRO FINALIZADO!")
   except sqlite3.Error as erro:
-    print(erro)
+    print("Falha ao cadastrar")

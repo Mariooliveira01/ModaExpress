@@ -1,5 +1,4 @@
 import sqlite3
-import criar_tabela
 #Criando a Função para conctar ao banco de dados.
 def conectar():
     try:

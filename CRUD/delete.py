@@ -1,6 +1,6 @@
 import sqlite3
 import conexao
-import CRUD.select as select
+import select
 
 def deleteCliente():
     conexao.conectar()  # Certifique-se de que essa função estabelece a conexão e o cursor

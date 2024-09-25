@@ -13,7 +13,9 @@ def deleteCliente():
         else:
             print("Campo não preenchido")
     except sqlite3.Error as erro:
-        print("Erro:", erro)
+        print("Erro ao remover cliente:", erro)
+    finally:
+        conexao.conn.close()  # Fecha a conexão após a operação
 
 def deleteVendedor():
     conexao.conectar()
@@ -22,11 +24,13 @@ def deleteVendedor():
         if vendedorApaga:
             conexao.cursor.execute("DELETE FROM vendedor WHERE id = ?", (vendedorApaga,))
             conexao.conn.commit()
-            print("Vendedor demitido")
+            print("Vendedor demitido com sucesso")
         else:
             print("Campo não preenchido")
     except sqlite3.Error as erro:
-        print("Erro:", erro)
+        print("Erro ao demitir vendedor:", erro)
+    finally:
+        conexao.conn.close()  # Fecha a conexão após a operação
 
 def deleteProduto():
     conexao.conectar()
@@ -35,8 +39,10 @@ def deleteProduto():
         if produtoApaga:
             conexao.cursor.execute("DELETE FROM produto WHERE id = ?", (produtoApaga,))
             conexao.conn.commit()
-            print("Produto removido do estoque")
+            print("Produto removido do estoque com sucesso")
         else:
             print("Campo não preenchido")
     except sqlite3.Error as erro:
-        print("Erro:", erro)
+        print("Erro ao remover produto:", erro)
+    finally:
+        conexao.conn.close()  # Fecha a conexão após a operação

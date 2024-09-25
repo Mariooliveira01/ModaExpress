@@ -20,7 +20,7 @@ def menu_estoque():
 
 def menu_funcionario():
   print("O QUE DESEJA FAZER FUNCIONARIO? ")
-  print("""1 - Cadastre-se: \n2 - Alterar dados Cadastrais: \n 3 - Consultar Estoque: \n4 - Excluir minha conta:""")
+  print("""1 - Cadastre-se: \n2 - Alterar dados Cadastrais: \n 3 - Consultar Estoque: \n5 - Excluir minha conta:""")
   
   global opcao 
   opcao = input()
@@ -28,7 +28,7 @@ def menu_funcionario():
 
 def menu_cliente():
   print("O QUE DESEJA FAZER CLIENTE? ")
-  print("""1 - Cadastre-se: \n2 - Alterar dados Cadastrais: \n 4 - Excluir minha conta:""" )
+  print("""1 - Cadastre-se: \n2 - Alterar dados Cadastrais: \n 3 - Excluir minha conta:""" )
   
   global opcao
   opcao=input()

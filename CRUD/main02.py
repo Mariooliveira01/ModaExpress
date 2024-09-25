@@ -1,7 +1,4 @@
-import sqlite3
 from funcaoMenu import funcao_menu, menu_cliente, menu_funcionario, menu_estoque
-import conexao
-from criar_tabela import tabelaVendedor, tabelaCliente
 import cadastrarFuncionario
 import cadastroCliente
 import cadastroProdutos
@@ -23,9 +20,9 @@ while opcao != '3':
             elif opcao_funcionario == '2':
                 update.atualizarVendedor()
             elif opcao_funcionario == '3':
-                # CONSULTA ESTOQUE
+               # CONSULTA ESTOQUE
                 opcao_estoque = menu_estoque()
-                while opcao_estoque != '5':
+                while opcao_estoque <= '4':
                     if opcao_estoque == '1':
                         cadastroProdutos.cadastro_produtos()
                     elif opcao_estoque == '2':
@@ -34,10 +31,13 @@ while opcao != '3':
                         registroVendas.vendas()
                     elif opcao_estoque == '4':
                         update.atualizarProduto()
+                    else:
+                        print("não funcionou")
                     opcao_estoque = menu_estoque()  # Atualiza a opção do menu de estoque
+
             elif opcao_funcionario == '5':
-                delete.deleteVendedor()
-            opcao_funcionario = menu_funcionario()  # Atualiza a opção do menu de funcionário
+                    delete.deleteVendedor()
+
     elif opcao == '2':
         # MENU CLIENTE
         opcao_cliente = menu_cliente()
@@ -48,5 +48,6 @@ while opcao != '3':
                 update.atualizarCliente()
             elif opcao_cliente == '3':
                 delete.deleteCliente()
+            
             opcao_cliente = menu_cliente()  # Atualiza a opção do menu de cliente
     opcao = funcao_menu()  # Atualiza a opção do menu principal

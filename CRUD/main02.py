@@ -2,11 +2,11 @@ from funcaoMenu import funcao_menu, menu_cliente, menu_funcionario, menu_estoque
 import cadastrarFuncionario
 import cadastroCliente
 import cadastroProdutos
-import consultaEstoque
-import registroVendas
+#import consultaEstoque
+#import registroVendas
 import delete
 import update
-import select
+#import select
 
 # MENU INICIAL (1 - FUNCIONÁRIO / 2 - CLIENTE) #
 opcao = funcao_menu()
@@ -30,8 +30,6 @@ while opcao != '3':
                     elif opcao_estoque == '2':
                         delete.deleteProduto()
                     elif opcao_estoque == '3':
-                        registroVendas.registrar_venda()
-                    elif opcao_estoque == '4':
                         update.atualizarProduto()
                     else:
                         print("não funcionou")

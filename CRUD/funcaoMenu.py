@@ -12,7 +12,7 @@ def funcao_menu():
 def menu_estoque():
   print("_O QUE DESEJA FAZER NO ESTOQUE?_")
   print("__________")
-  print("""1 - Cadastrar Produto: \n 2 - Excluir Produto: \n 3 - Vendas: \n 4 - Atualizar Estoque: """)
+  print("""1 - Cadastrar Produto: \n 2 - Excluir Produto: \n 3 - Atualizar Estoque: """)
   
   global opcao 
   opcao = input()
@@ -33,6 +33,3 @@ def menu_cliente():
   global opcao
   opcao=input()
   return opcao
-
-def voltar():
-  print("deseja continuar?\n1 - sim\n2 - não")

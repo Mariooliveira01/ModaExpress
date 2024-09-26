@@ -20,7 +20,7 @@ def cadastro_produto():
 
         # Consulta para inserir os dados na tabela
         inserir_produto = """
-        INSERT INTO criarTabelaProduto (nome, quantidade, tamanho, valor, material, cor)
+        INSERT INTO tabelaProduto ( nome TEXT, quantidade INTEGER, tamanho TEXT, valor INTEGER, material TEXT, cor TEXT)
         VALUES (?, ?, ?, ?, ?, ?)
         """
 

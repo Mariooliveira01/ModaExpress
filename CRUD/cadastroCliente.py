@@ -19,7 +19,7 @@ def cadastro_cliente():
         cidade = input("Informe sua Cidade: ")
         estado = input("Informe seu Estado: ")
 
-        # Consulta SQL utilizando placeholders
+        # Consultas utilizando placeholders
         inserir_cliente = """
         INSERT INTO cliente (nome, sobrenome, cpf, telefone, rua, numero, cidade, estado) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)

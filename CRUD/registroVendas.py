@@ -1,45 +1,70 @@
 import sqlite3
-import conexao
+import criar_tabela  # Certifique-se de que esta importação está correta
 
-def criar_banco():
-    conn = sqlite3.connect('Gestao_Moda_Express.db')
-    cursor = conn.cursor()
+def setup():
+    """Configura o banco de dados, criando a tabela de vendas."""
+    criar_tabela.tabelaVendas()
 
-    cursor.execute('''CREATE TABLE IF NOT EXISTS produtos (id INTEGER PRIMARY KEY AUTOINCREMENT,nome TEXT NOT NULL,quantidade INTEGER NOT NULL,preco REAL NOT NULL)''')
+def consultar_venda_cliente():import sqlite3
+import criar_tabela  # Certifique-se de que esta importação está correta
 
-    cursor.execute('''CREATE TABLE IF NOT EXISTS vendas (id INTEGER PRIMARY KEY AUTOINCREMENT,produto_id INTEGER NOT NULL,quantidade INTEGER NOT NULL,data TEXT NOT NULL,valor_total REAL NOT NULL,FOREIGN KEY(produto_id) REFERENCES Produtos(id))''')
+def setup():
+    """Configura o banco de dados, criando a tabela de vendas."""
+    criar_tabela.tabelaVendas()
 
-    conn.commit()
-    conn.close()
-
-criar_banco()
-
-
-def consultarVenda():
-        com = sqlite3.connect('Gestao_Moda_Express.db')
-        cursor = com.cursor()
+def consultar_venda_cliente():
+    """Consulta todas as vendas registradas na tabela cliente."""
+    setup()  # Garante que a tabela de vendas existe
+    with sqlite3.connect('Gestao_Moda_Express.db') as conn:
+        cursor = conn.cursor()
         cursor.execute('SELECT * FROM cliente')
         vendas = cursor.fetchall()
-        com.close()
-        return vendas
-
-
-def registrarVenda(self):
-    print(f"Produto ID: {self.produto_id},Quantidade: {self.quantidade},Valor Total: {self.valor_total}")
-    conn = sqlite3.connect('Gestao_Moda_Express.db')
-    cursor = conn.cursor()
-    cursor.execute('INSERT INTO Vendas (produto_id, quantidade, data, valor_total) VALUES (?, ?, date("now"), ?)', (self.produto_id, self.quantidade, self.valor_total))
-        
-    # Atualiza o estoque
-    cursor.execute('UPDATE Produtos SET quantidade = quantidade - ? WHERE id = ?',(self.quantidade, self.produto_id))
-
-    conn.commit()
-    conn.close()
-
-def consultarVenda():
-    conn = sqlite3.connect('Gestao_Moda_Express.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM Vendas')
-    vendas = cursor.fetchall()
-    conn.close()
     return vendas
+
+def registrar_venda(produto_id, quantidade, valor_total):
+    """Registra uma nova venda no banco de dados e atualiza o estoque do produto."""
+    setup()  # Garante que a tabela de vendas existe
+    print(f"Produto ID: {produto_id}, Quantidade: {quantidade}, Valor Total: {valor_total}")
+    
+    with sqlite3.connect('Gestao_Moda_Express.db') as conn:
+        cursor = conn.cursor()
+        
+        # Insere a venda na tabela Vendas
+        cursor.execute('INSERT INTO vendas (produto_id, quantidade, data, valor_total) VALUES (?, ?, date("now"), ?)', (produto_id, quantidade, valor_total))
+        
+        # Atualiza o estoque na tabela Produto
+        cursor.execute('UPDATE produto SET quantidade = quantidade - ? WHERE id = ?', (quantidade, produto_id))
+
+def consultar_venda():
+    """Consulta todas as vendas registradas na tabela vendas."""
+    setup()  # Garante que a tabela de vendas existe
+    with sqlite3.connect('Gestao_Moda_Express.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM vendas')
+        vendas = cursor.fetchall()
+    return vendas
+
+
+def registrar_venda(produto_id, quantidade, valor_total):
+    """Registra uma nova venda no banco de dados e atualiza o estoque do produto."""
+    setup()  # Garante que a tabela de vendas existe
+    print(f"Produto ID: {produto_id}, Quantidade: {quantidade}, Valor Total: {valor_total}")
+    
+    with sqlite3.connect('Gestao_Moda_Express.db') as conn:
+        cursor = conn.cursor()
+        
+        # Insere a venda na tabela Vendas
+        cursor.execute('INSERT INTO vendas (produto_id, quantidade, data, valor_total) VALUES (?, ?, date("now"), ?)', (produto_id, quantidade, valor_total))
+        
+        # Atualiza o estoque na tabela Produto
+        cursor.execute('UPDATE produto SET quantidade = quantidade - ? WHERE id = ?', (quantidade, produto_id))
+
+def consultar_venda():
+    """Consulta todas as vendas registradas na tabela vendas."""
+    setup()  # Garante que a tabela de vendas existe
+    with sqlite3.connect('Gestao_Moda_Express.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM vendas')
+        vendas = cursor.fetchall()
+    return vendas
+

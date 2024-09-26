@@ -26,11 +26,11 @@ while opcao != '3':
                 opcao_estoque = menu_estoque()
                 while opcao_estoque <= '4':
                     if opcao_estoque == '1':
-                        cadastroProdutos.cadastro_produtos()
+                        cadastroProdutos.cadastro_produto()
                     elif opcao_estoque == '2':
                         delete.deleteProduto()
                     elif opcao_estoque == '3':
-                        registroVendas.vendas()
+                        registroVendas.registrar_venda()
                     elif opcao_estoque == '4':
                         update.atualizarProduto()
                     else:
@@ -39,9 +39,11 @@ while opcao != '3':
                 menu_funcionario()
 
             elif opcao_funcionario == '4':
-                    delete.deleteVendedor()
-                    menu_funcionario()
-            elif opcao_funcionario == '5'
+                delete.deleteVendedor()
+                menu_funcionario()
+            elif opcao_funcionario == '5':
+                funcao_menu()
+
 
     elif opcao == '2':
         # MENU CLIENTE
@@ -53,6 +55,8 @@ while opcao != '3':
                 update.atualizarCliente()
             elif opcao_cliente == '3':
                 delete.deleteCliente()
-            
+            elif opcao_funcionario == '5':
+                funcao_menu()
+
             opcao_cliente = menu_cliente()  # Atualiza a opção do menu de cliente
     opcao = funcao_menu()  # Atualiza a opção do menu principal

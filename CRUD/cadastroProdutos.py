@@ -1,38 +1,39 @@
-import sqlite3
-import conexao
-class Produto:
+import sqlite3  # Importa o módulo sqlite3 para lidar com o banco de dados
+import conexao  # Importa o módulo de conexão (deve conter a função para conectar ao banco)
+import criar_tabela  # Importa o módulo que cria as tabelas (deve conter a função criarTabelaProduto)
 
-    def __init__(self, nome, quantidade, preco):
-        self.nome = nome
-        self.quantidade = quantidade
-        self.preco = preco
-
-    def salvarProduto(self):
+def cadastro_produto():
+    try:
+        # Conecta ao banco de dados
         conexao.conectar()
-        conn = sqlite3.connect('Gestao_Moda_Express.db')
-        cursor = conn.cursor()
-        cursor.execute('INSERT INTO produto (nome, quantidade, preco) VALUES (?, ?, ?)',(self.nome, self.quantidade, self.preco))
+        
+        # Chama a função para criar a tabela (caso ainda não tenha sido criada)
+        criar_tabela.tabelaProduto()
+
+        # Coleta as informações do produto
+        nome = input("Informe o nome do produto: ")
+        quantidade = int(input("Informe a quantidade: "))
+        tamanho = input("Informe o tamanho: ")
+        valor = float(input("Informe o valor: "))
+        material = input("Informe o material: ")
+        cor = input("Informe a cor: ")
+
+        # Consulta para inserir os dados na tabela
+        inserir_produto = """
+        INSERT INTO criarTabelaProduto (nome, quantidade, tamanho, valor, material, cor)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """
+
+        # Executa a consulta de inserção com os valores fornecidos
+        conexao.cursor.execute(inserir_produto, (nome, quantidade, tamanho, valor, material, cor))
+        
+        # Confirma a transação no banco de dados
         conexao.conn.commit()
-        conexao.conn.close()
+        print("Produto cadastrado com sucesso!")
 
-    @staticmethod
-    def atualizarProduto(id, quantidade=None, preco=None):
-        conexao.conectar()
-        conn = sqlite3.connect('Gestao_Moda_Express.db')
-        cursor = conn.cursor()
-        if quantidade is not None:
-            cursor.execute('UPDATE produto SET quantidade = ? WHERE id = ?',(quantidade, id))
-        if preco is not None:
-            cursor.execute('UPDATE produto SET preco = ? WHERE id = ?',(preco, id))
-        conexao.conn.commit()
-        conexao.conn.close()
+    except sqlite3.Error as erro:
+        print("Erro ao cadastrar produto:", erro)
 
-    @staticmethod
-    def consultarProduto():
-        conexao.conectar()
-        conn = sqlite3.connect('Gestao_Moda_Express.db')
-        cursor = conn.cursor()
-        cursor.execute('SELECT * FROM Produto')
-        produtos = cursor.fetchall()
+    finally:
+        # Fecha a conexão com o banco de dados
         conexao.conn.close()
-        return produtos

@@ -17,8 +17,10 @@ while opcao != '3':
         while opcao_funcionario != '6':
             if opcao_funcionario == '1':
                 cadastrarFuncionario.cadastro_funcionario()
+                menu_funcionario()
             elif opcao_funcionario == '2':
                 update.atualizarVendedor()
+                menu_funcionario()
             elif opcao_funcionario == '3':
                # CONSULTA ESTOQUE
                 opcao_estoque = menu_estoque()
@@ -34,9 +36,11 @@ while opcao != '3':
                     else:
                         print("não funcionou")
                     opcao_estoque = menu_estoque()  # Atualiza a opção do menu de estoque
+                menu_funcionario()
 
             elif opcao_funcionario == '5':
                     delete.deleteVendedor()
+                    menu_funcionario()
 
     elif opcao == '2':
         # MENU CLIENTE

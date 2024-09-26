@@ -38,9 +38,10 @@ while opcao != '3':
                     opcao_estoque = menu_estoque()  # Atualiza a opção do menu de estoque
                 menu_funcionario()
 
-            elif opcao_funcionario == '5':
+            elif opcao_funcionario == '4':
                     delete.deleteVendedor()
                     menu_funcionario()
+            elif opcao_funcionario == '5'
 
     elif opcao == '2':
         # MENU CLIENTE
